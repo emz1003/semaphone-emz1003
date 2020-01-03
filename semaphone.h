@@ -15,13 +15,13 @@
 #define SEG_SIZE 2048
 #define FILENAME "story"
 
-// union semun {
-//     int val;               /* Value for SETVAL */
-//     struct semid_ds *buf;  /* Buffer for IPC_STAT, IPC_SET */
-//     unsigned short *array; /* Array for GETALL, SETALL */
-//     struct seminfo *__buf; /* Buffer for IPC_INFO
-//                                            (Linux-specific) */
-// };
+union semun {
+    int val;               /* Value for SETVAL */
+    struct semid_ds *buf;  /* Buffer for IPC_STAT, IPC_SET */
+    unsigned short *array; /* Array for GETALL, SETALL */
+    struct seminfo *__buf; /* Buffer for IPC_INFO
+                                           (Linux-specific) */
+};
 
 int cre(int semd, int shmd, int fd);
 int rem(int semd, int shmd, int fd);
